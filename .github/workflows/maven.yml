@@ -19,6 +19,6 @@ jobs:
       with:
         java-version: 1.11
     - name: Build and install helpy-library-common
-      run: mvn install --file helpy-library-common/pom.xml
+      run: mvn install --file ../helpy-library-common/pom.xml
     - name: Build with Maven
       run: mvn -B package --file pom.xml
