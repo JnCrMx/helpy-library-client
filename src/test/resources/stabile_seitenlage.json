@@ -1,0 +1,17 @@
+{
+	"lang": "de",
+	"type": "INSTRUCTION",
+	"form": "CONTINUE",
+	"short": "Bringe die Person in die stablie Seitenlage!",
+	"help":
+	[
+		"<einfach Erklärung beim ersten Nachfragen>",
+		"<ausführlichere Erklärung beim zweiten Nachfragen>",
+		"<usw>"
+	],
+	"video": "stablie_seitenlage.mp4",
+	"options":
+	[
+		{"answers": ["ok", "fertig", "erledigt", "weiter"], "target": "irgendetwas"}
+	]
+}

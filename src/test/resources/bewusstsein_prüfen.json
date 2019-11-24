@@ -1,0 +1,15 @@
+{
+	"lang": "de",
+	"type": "HEALTH_CHECK",
+	"form": "PREDICAMENT",
+	"short": "Ist die Person bei Bewusstsein?",
+	"help":
+	[
+		"Prüfe, ob die Person ansprechbar ist!"
+	],
+	"options":
+	[
+		{"answers": ["ja", "positiv"], "target": "stabile_seitenlage"},
+		{"answers": ["nein", "negativ"], "target": "atmung_prüfen"}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"lang": "de",
+	"type": "INFORMATION",
+	"form": "CONTINUE",
+	"short": "Beginne mit der Erstversorgung des Verletzten! Sage \"Weiter\" um forzufahren und \"Hilfe\" um weitere Informationen zu erhalten!",
+	"help":
+	[
+		"Du kannst jederzeit \"Hilfe\" sagen, wenn du nicht weiterweißt."
+	],
+	"image": "welcome.svg",
+	"options":
+	[
+		{"answers": ["weiter"], "target": "bewusstsein_prüfen"}
+	]
+}
