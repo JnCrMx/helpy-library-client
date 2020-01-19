@@ -16,10 +16,6 @@ public class ApiTests
 	{
 		HelpyApi api = new HelpyApi();
 
-		// Check if domain can be found and server is Ready to Serve
-		Assertions.assertEquals(404, api.getBaseTarget().request().get().getStatus(),
-				"Server did not respond with 404 for base target!");
-
 		// Check if we can authenticate as a demo user specially made for this test
 		TokenProvider provider =
 				new LoginTokenProvider("testuser", "testpassword");

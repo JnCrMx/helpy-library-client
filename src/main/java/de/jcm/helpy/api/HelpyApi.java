@@ -2,6 +2,7 @@ package de.jcm.helpy.api;
 
 import de.jcm.helpy.api.authentication.TokenProvider;
 import de.jcm.helpy.api.distribution.DistributionEndpoint;
+import org.apiguardian.api.API;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -12,17 +13,6 @@ public class HelpyApi
 	public static final String BASE_URL = "https://jserver.kwgivnecuiphlqnj.myfritz.net/api/helpy/";
 
 	protected final Client client;
-
-	public Client getClient()
-	{
-		return client;
-	}
-
-	public WebTarget getBaseTarget()
-	{
-		return baseTarget;
-	}
-
 	protected final WebTarget baseTarget;
 
 	protected String authToken = null;
@@ -32,6 +22,7 @@ public class HelpyApi
 	protected CallEndpoint callEndpoint;
 	protected DistributionEndpoint distributionEndpoint;
 
+	@API(status = API.Status.MAINTAINED)
 	public HelpyApi(String baseUrl)
 	{
 		client = ClientBuilder.newClient();
@@ -41,14 +32,16 @@ public class HelpyApi
 		userEndpoint = new UserEndpoint(this, baseTarget);
 		boxEndpoint = new BoxEndpoint(this, baseTarget);
 		callEndpoint = new CallEndpoint(this, baseTarget);
-		distributionEndpoint = new DistributionEndpoint(this, baseTarget);
+		distributionEndpoint = new DistributionEndpoint(baseTarget);
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public HelpyApi()
 	{
 		this(BASE_URL);
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public boolean authenticate(TokenProvider provider)
 	{
 		String token;
@@ -67,23 +60,28 @@ public class HelpyApi
 		return true;
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public boolean isAuthenticated()
 	{
 		return authToken != null;
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public UserEndpoint users()
 	{
 		return userEndpoint;
 	}
+	@API(status = API.Status.MAINTAINED)
 	public BoxEndpoint boxes()
 	{
 		return boxEndpoint;
 	}
+	@API(status = API.Status.MAINTAINED)
 	public CallEndpoint calls()
 	{
 		return callEndpoint;
 	}
+	@API(status = API.Status.MAINTAINED)
 	public DistributionEndpoint distributions()
 	{
 		return distributionEndpoint;

@@ -6,17 +6,21 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apiguardian.api.API;
+
 public class BoxEndpoint
 {
 	private final HelpyApi api;
 	private final WebTarget baseTarget;
 
+	@API(status = API.Status.INTERNAL)
 	BoxEndpoint(HelpyApi api, WebTarget baseTarget)
 	{
 		this.api = api;
 		this.baseTarget = baseTarget;
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public Box self()
 	{
 		if(!api.isAuthenticated())

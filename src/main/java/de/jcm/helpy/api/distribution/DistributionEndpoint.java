@@ -1,24 +1,22 @@
 package de.jcm.helpy.api.distribution;
 
-import de.jcm.helpy.api.HelpyApi;
+import org.apiguardian.api.API;
 
 import javax.ws.rs.client.WebTarget;
 
 public class DistributionEndpoint
 {
-	private final HelpyApi api;
-	private final WebTarget baseTarget;
-
 	private final ContentEndpoint contentEndpoint;
 
-	public DistributionEndpoint(HelpyApi api, WebTarget baseTarget)
+	@API(status = API.Status.INTERNAL)
+	public DistributionEndpoint(WebTarget baseTarget)
 	{
-		this.api = api;
-		this.baseTarget = baseTarget.path("/distribution");
+		WebTarget distTarget = baseTarget.path("/distribution");
 
-		this.contentEndpoint = new ContentEndpoint(this.api, this.baseTarget);;
+		this.contentEndpoint = new ContentEndpoint(distTarget);
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public ContentEndpoint content()
 	{
 		return contentEndpoint;

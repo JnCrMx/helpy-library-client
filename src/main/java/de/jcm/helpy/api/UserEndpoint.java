@@ -1,6 +1,7 @@
 package de.jcm.helpy.api;
 
 import de.jcm.helpy.User;
+import org.apiguardian.api.API;
 
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -17,6 +18,7 @@ public class UserEndpoint
 		this.baseTarget = baseTarget;
 	}
 
+	@API(status = API.Status.MAINTAINED)
 	public User self()
 	{
 		if(!api.isAuthenticated())
