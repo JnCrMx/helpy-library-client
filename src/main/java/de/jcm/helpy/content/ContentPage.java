@@ -3,8 +3,6 @@ package de.jcm.helpy.content;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.io.File;
-
 public class ContentPage
 {
 	@JsonAlias("lang")
@@ -19,9 +17,9 @@ public class ContentPage
 	public String[] helpMessages;
 
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	public File image;
+	public String image;
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	public File video;
+	public String video;
 
 	public ContentOption[] options;
 }
