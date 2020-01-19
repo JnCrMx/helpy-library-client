@@ -9,7 +9,7 @@
 	],
 	"options":
 	[
-		{"answers": ["ja", "positiv"], "target": "stabile_seitenlage"},
-		{"answers": ["nein", "negativ"], "target": "atmung_prüfen"}
+		{"id": 0, "answers": ["ja", "positiv"], "target": "stabile_seitenlage"},
+		{"id": 1, "answers": ["nein", "negativ"], "target": "atmung_prüfen"}
 	]
 }

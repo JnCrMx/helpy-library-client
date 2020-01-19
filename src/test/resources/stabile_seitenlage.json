@@ -12,6 +12,6 @@
 	"video": "stablie_seitenlage.mp4",
 	"options":
 	[
-		{"answers": ["ok", "fertig", "erledigt", "weiter"], "target": "irgendetwas"}
+		{"id": 0, "answers": ["ok", "fertig", "erledigt", "weiter"], "target": "irgendetwas"}
 	]
 }
