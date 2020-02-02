@@ -137,7 +137,7 @@ public class CallEndpoint
 				.header("Authorization", "Bearer "+api.authToken)
 				.post(Entity.form(new Form()
 					.param("state", state.name())));
-		if(response.getStatusInfo().toEnum() != Response.Status.OK)
+		if(response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL)
 		{
 			throw new RuntimeException("got "+response.getStatus()+" as response");
 		}
@@ -168,7 +168,7 @@ public class CallEndpoint
 						.param("content_path", contentPath)
 						.param("chosen_option", Integer.toString(chosenOption))));
 
-		if(response.getStatusInfo().toEnum() != Response.Status.OK)
+		if(response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL)
 		{
 			throw new RuntimeException("got "+response.getStatus()+" as response");
 		}
@@ -214,16 +214,18 @@ public class CallEndpoint
 	@API(status = API.Status.MAINTAINED)
 	public CallInteraction getLastCallInteraction(int callId)
 	{
+		if(!api.isAuthenticated())
+		{
+			throw new IllegalStateException("not authenticated");
+		}
+
 		WebTarget target = baseTarget.path("/call")
 				.path(Integer.toString(callId))
 				.path("/interactions/last");
 
-		Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
-		if(api.isAuthenticated())
-		{
-			builder = builder.header("Authorization", "Bearer " + api.authToken);
-		}
-		return builder.get(CallInteraction.class);
+		return target.request(MediaType.APPLICATION_JSON)
+				.header("Authorization", "Bearer " + api.authToken)
+				.get(CallInteraction.class);
 	}
 
 	@API(status = API.Status.MAINTAINED)
