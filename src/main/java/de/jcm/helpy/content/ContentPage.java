@@ -20,6 +20,8 @@ public class ContentPage
 	public String image;
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public String video;
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	public String sound;
 
 	public ContentOption[] options;
 }
